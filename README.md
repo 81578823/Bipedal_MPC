@@ -4,6 +4,13 @@
 This work is focused on the study of convex MPC for bipedal robots.
 Convex model predictive control can be applied not only to quadruped robots but also to biped robots.
 
+# IMPORTANCE
+This project is currently running only on ubuntu22.04！！
+
+This project is currently running only on ubuntu22.04！！
+
+This project is currently running only on ubuntu22.04！！
+
 # Build Package
 ## Install ROS2 according to your operating system (my operating system is ubuntu 22.04 with ros2-humble)
 If you are freshman, it is recommended to use this command line in terminal:

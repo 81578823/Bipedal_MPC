@@ -11,9 +11,13 @@ If you are freshman, it is recommended to use this command line in terminal:
 wget http://fishros.com/install -O fishros && . fishros
 ```
 First, choose 1: '一键安装(推荐):ROS(支持ROS/ROS2,树莓派Jetson)'.
+
 Second, choose 1: '更换系统源再继续安装'.
+
 Third, choose 1: 'humble(ros2)'.
+
 Finally, choose 1: 'humble(ros2)桌面版'.
+
 Then, the ros2 is successfully installed. For more details please refer to [fishros](https://github.com/fishros/install). Thank fishros for his contributions!!!!!!!
 
 If ros2 cannot be successfully installed in your operating system, please refer to [ROS2](https://ros.org/) official doc.

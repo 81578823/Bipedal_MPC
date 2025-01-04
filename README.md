@@ -16,7 +16,7 @@ Third, choose 1: 'humble(ros2)'.
 Finally, choose 1: 'humble(ros2)桌面版'.
 Then, the ros2 is successfully installed. For more details please refer to [fishros](https://github.com/fishros/install). Thank fishros for his contributions!!!!!!!
 
-If you are masters or newcomers of other countries, please refer to [ROS2](https://ros.org/) official doc.
+If ros2 cannot be successfully installed in your operating system, please refer to [ROS2](https://ros.org/) official doc.
 
 ## Dependency
 ```bash

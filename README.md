@@ -4,7 +4,7 @@
 This work is focused on the study of convex MPC for bipedal robots.
 Convex model predictive control can be applied not only to quadruped robots but also to biped robots.
 
-# IMPORTANCE
+# Important matter
 This project is currently running only on ubuntu22.04！！
 
 This project is currently running only on ubuntu22.04！！

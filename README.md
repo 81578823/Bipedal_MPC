@@ -2,16 +2,32 @@
 ![video](./display.gif)
 
 This work is focused on the study of convex MPC for bipedal robots.
-Convex MPC not only works on the quadruped robots but also point foot bipedal robots.
+Convex model predictive control can be applied not only to quadruped robots but also to biped robots.
 
 # Build Package
-## Install ROS2 according to your operating system
-Refer to [ROS2](https://ros.org/) official doc.
+## Install ROS2 according to your operating system (my operating system is ubuntu 22.04 with ros2-humble)
+If you are freshman, it is recommended to use this command line in terminal:
+```bash
+wget http://fishros.com/install -O fishros && . fishros
+```
+First, choose 1: '一键安装(推荐):ROS(支持ROS/ROS2,树莓派Jetson)'.
+Second, choose 1: '更换系统源再继续安装'.
+Third, choose 1: 'humble(ros2)'.
+Finally, choose 1: 'humble(ros2)桌面版'.
+Then, the ros2 is successfully installed. For more details please refer to [fishros](https://github.com/fishros/install). Thank fishros for his contributions!!!!!!!
+
+If you are masters or newcomers of other countries, please refer to [ROS2](https://ros.org/) official doc.
 
 ## Dependency
 ```bash
 sudo apt-get install ros-<ros2-distro>-eigenpy
 sudo apt-get install ros-<ros2-distro>-pinocchio
+```
+
+For ros2(humble)
+```bash
+sudo apt-get install ros-humble-eigenpy
+sudo apt-get install ros-humble-pinocchio
 ```
 
 ## Build

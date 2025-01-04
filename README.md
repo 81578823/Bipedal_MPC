@@ -7,7 +7,7 @@ Convex model predictive control can be applied not only to quadruped robots but 
 # Important matter
 This project is currently running only on ros2！！
 
-Please check the ros versions supported by the operating system！！
+Please check the ros versions supported by your operating system！！
 
 # Build Package
 ## Install ROS2 according to your operating system (my operating system is ubuntu 22.04 with ros2-humble)

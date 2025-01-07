@@ -71,6 +71,18 @@ Nowadays, more and more people are used to using python.
 Hence, we will focus on converting the C++ work into a respository in python. So please waiting ...
 
 
-
+# Reference
+```bibtex
+@INPROCEEDINGS{8594448,
+  author={Di Carlo, Jared and Wensing, Patrick M. and Katz, Benjamin and Bledt, Gerardo and Kim, Sangbae},
+  booktitle={2018 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)}, 
+  title={Dynamic Locomotion in the MIT Cheetah 3 Through Convex Model-Predictive Control}, 
+  year={2018},
+  volume={},
+  number={},
+  pages={1-9},
+  keywords={Robot kinematics;Legged locomotion;Dynamics;Predictive control;Convex functions;Predictive models},
+  doi={10.1109/IROS.2018.8594448}}
+```
 
 

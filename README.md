@@ -1,4 +1,4 @@
-# Model Predictive Control for Bipedal Robot TRON 1 in MuJoCo Simulator
+# Model Predictive Control for Bipedal Robot PF_A in MuJoCo Simulator
 ![video](./display.gif)
 
 This work is focused on the study of convex MPC for bipedal robots.

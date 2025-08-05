@@ -29,14 +29,18 @@ If ros2 cannot be successfully installed in your operating system, please refer 
 
 ## Dependency
 ```bash
+sudo apt update
 sudo apt-get install ros-<ros2-distro>-eigenpy
 sudo apt-get install ros-<ros2-distro>-pinocchio
+sudo apt install libglfw3-dev
 ```
 
 For ros2(humble)
 ```bash
+sudo apt update
 sudo apt-get install ros-humble-eigenpy
 sudo apt-get install ros-humble-pinocchio
+sudo apt install libglfw3-dev
 ```
 
 ## Build

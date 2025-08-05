@@ -43,19 +43,6 @@ sudo apt-get install ros-humble-pinocchio
 sudo apt install libglfw3-dev
 ```
 
-For third party
-```bash
-git clone https://github.com/giaf/hpipm.git
-cd hpipm
-git checkout v0.1.0  # 使用兼容版本
-
-# 2. 编译安装
-mkdir build && cd build
-cmake -DBUILD_SHARED_LIBS=ON ..
-make -j$(nproc)
-sudo make install
-```
-
 ## Build
 ```bash
 git clone https://github.com/81578823/Bipedal_MPC.git

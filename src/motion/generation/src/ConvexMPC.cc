@@ -23,7 +23,9 @@ ConvexMPC::ConvexMPC(Node::SharedPtr nodeHandle,
 
   total_mass_ = pinocchioInterface_ptr_->total_mass();
   weight_.setZero(12, 12);
-  weight_.diagonal() << 10, 10, 40, 0.2, 0.2, 0.1, 4, 4, 4, 0.1, 0.1, 0.1;
+  weight_.diagonal() << 20, 20, 40, 0.2, 0.2, 0.1, 4, 4, 4, 2.0, 2.0, 3.0;
+  //                   x   y   z   vx vy vz  theta_x theta_y theta_z w_x w_y w_z
+  // 增加yaw(0.1->1.0)和w_z(0.1->0.5)的权重以提高稳定性
 
   solver_settings.mode = hpipm::HpipmMode::Speed;
   solver_settings.iter_max = 30;
@@ -48,7 +50,10 @@ ConvexMPC::~ConvexMPC() {}
 
 void ConvexMPC::setVelCmd(vector3_t vd, scalar_t yawd) {
   vel_cmd = vd;
-  yawd_ = yawd;
+  // 渐进式角速度限制，避免突变
+  scalar_t yawd_target = min(max(yawd, -0.3), 0.3);
+  // yawd_ = yawd_target;
+  yawd_ = 0.9 * yawd_ + 0.1 * yawd_target;  // 低通滤波
 }
 
 void ConvexMPC::setHeightCmd(scalar_t h) { h_des = h; }
@@ -82,15 +87,15 @@ void ConvexMPC::generateTrajRef() {
   std::vector<scalar_t> time;
   std::vector<vector_t> rpy_t, pos_t;
   scalar_t horizon_time = referenceBuffer_->getModeSchedule()->duration();
-  size_t N = horizon_time / 0.05;
+  size_t N = horizon_time / 0.02;
   for (size_t k = 0; k < N; k++) {
-    time.push_back(t_now + 0.05 * k);
+    time.push_back(t_now + 0.02 * k);
     vector3_t rpy_k = rpy_start;
-    rpy_k.z() += 0.05 * k * yawd_;
+    rpy_k.z() += 0.02 * k * yawd_;
     rpy_t.emplace_back(rpy_k);
 
     vector3_t vel_des = toRotationMatrix(rpy_k) * vel_cmd;
-    vector3_t pos_k = pos_start + 0.05 * k * vel_des;
+    vector3_t pos_k = pos_start + 0.02 * k * vel_des;
     pos_k.z() = h_des;
     pos_t.emplace_back(pos_k);
   }

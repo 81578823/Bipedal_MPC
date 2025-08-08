@@ -24,6 +24,8 @@ ConvexMPC::ConvexMPC(Node::SharedPtr nodeHandle,
   total_mass_ = pinocchioInterface_ptr_->total_mass();
   weight_.setZero(12, 12);
   weight_.diagonal() << 20, 20, 40, 0.2, 0.2, 0.1, 4, 4, 4, 2.0, 2.0, 3.0;
+  // weight_.diagonal() << 10, 10, 40, 0.2, 0.2, 0.1, 4, 4, 4, 0.1, 0.1, 0.1;
+
   //                   x   y   z   vx vy vz  theta_x theta_y theta_z w_x w_y w_z
   // 增加yaw(0.1->1.0)和w_z(0.1->0.5)的权重以提高稳定性
 

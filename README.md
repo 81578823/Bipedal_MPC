@@ -1,7 +1,7 @@
 # Model Predictive Control for Bipedal Robot PF_TRON1A in MuJoCo Simulator
 # 双足机器人PF_TRON1A在MuJoCo仿真器中的模型预测控制
 
-![video](./display.gif)
+![video](./media/display.gif)
 
 This work is focused on the study of convex MPC for bipedal robots.
 Convex model predictive control can be applied not only to quadruped robots but also to biped robots.
@@ -81,26 +81,44 @@ ros2 launch sim sim_launch.py
 ros2 launch management management_launch.py 
 ```
 
+
 # Change Velocity / 改变速度
 If you have the controller, you can change the linear velocity using it directly.
+
 如果你有遥控器，您可以直接使用控制器改变速度。
 
 If don't have the remote controller, you can change the linear velocity on this code file:
+
 如果没有遥控器，您可以在此代码文件中更改线速度和角速度：
-![photo](./velocity_get.jpg)
+![photo](./media/velocity_get.jpg)
 
 Then you can change the velocities on the JoyStick::getLinearVelCmd() (default: 0.0 (linear); 0.0 (angular))
+
 然后您可以在JoyStick::getLinearVelCmd()中更改速度（默认值：0.0（线速度）；0.0（角速度））
 
 ## WARNING: Please do not use the Yaw velocity command, which is dangerous in current control.
 ## 警告：请不要使用Yaw方向速度命令，这在当前控制下很危险。
 
-# Future work / 未来工作
-Nowadays, more and more people are used to using python. 
-Hence, we will focus on converting the C++ work into a respository in python. So please waiting ...
+# Project framework and formula derivation / 项目框架与公式推导
+The block has been writen as:
+![block](./media/block.jpg)
 
-如今，越来越多的人习惯使用Python。
-因此，我们将专注于将C++工作转换为Python存储库。所以请稍等...
+For Dynamic
+![Dynamic](./media/Dynamic.jpg)
+
+For MPC
+![MPC](./media/MPC.jpg)
+
+For WBC
+![WBC](./media/WBC.jpg)
+
+For LKF
+![LKF](./media/LKF1.jpg)
+![LKF](./media/LKF2.jpg)
+
+## For the specific operation mode and formula description of this project, please refer to the comments section in the code
+## 该项目具体运行方式以及公式说明请参考代码中的注释部分
+
 
 # Reference / 参考文献
 J. Di Carlo, P. M. Wensing, B. Katz, G. Bledt and S. Kim, "Dynamic Locomotion in the MIT Cheetah 3 Through Convex Model-Predictive Control," 2018 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), Madrid, Spain, 2018, pp. 1-9, doi: 10.1109/IROS.2018.8594448. keywords: {Robot kinematics;Legged locomotion;Dynamics;Predictive control;Convex functions;Predictive models},

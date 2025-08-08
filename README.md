@@ -82,12 +82,18 @@ ros2 launch management management_launch.py
 ```
 
 # Change Velocity / 改变速度
-if don't have the remote controller, you can change the linear velocity and angular velocity on this code file:
+If you have the controller, you can change the linear velocity using it directly.
+如果你有遥控器，您可以直接使用控制器改变速度。
+
+If don't have the remote controller, you can change the linear velocity on this code file:
 如果没有遥控器，您可以在此代码文件中更改线速度和角速度：
 ![photo](./velocity_get.jpg)
 
-Then you can change the velocities on the JoyStick::getLinearVelCmd() and JoyStick::getYawVelCmd() (default: 0.0 (linear); 0.0 (angular))
-然后您可以在JoyStick::getLinearVelCmd()和JoyStick::getYawVelCmd()中更改速度（默认值：0.0（线速度）；0.0（角速度））
+Then you can change the velocities on the JoyStick::getLinearVelCmd() (default: 0.0 (linear); 0.0 (angular))
+然后您可以在JoyStick::getLinearVelCmd()中更改速度（默认值：0.0（线速度）；0.0（角速度））
+
+## WARNING: Please do not use the Yaw velocity command, which is dangerous in current control.
+## 警告：请不要使用Yaw方向速度命令，这在当前控制下很危险。
 
 # Future work / 未来工作
 Nowadays, more and more people are used to using python. 

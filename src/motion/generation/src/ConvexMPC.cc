@@ -35,6 +35,7 @@ ConvexMPC::ConvexMPC(Node::SharedPtr nodeHandle,
   // [位置x,y,z, 速度vx,vy,vz, 姿态角θx,θy,θz, 角速度ωx,ωy,ωz]
   // [position x,y,z, velocity vx,vy,vz, orientation θx,θy,θz, angular velocity ωx,ωy,ωz]
   weight_.setZero(12, 12);
+  // weight_.diagonal() << 10, 10, 20, 0.1, 0.1, 0.1, 1, 1, 1, 0.1, 0.1, 0.1;
   weight_.diagonal() << 20, 20, 40, 0.2, 0.2, 0.1, 4, 4, 4, 2.0, 2.0, 3.0;
   // 增加yaw(0.1->1.0)和w_z(0.1->0.5)的权重以提高稳定性
   // Increase yaw and w_z weights to improve stability
@@ -74,8 +75,8 @@ void ConvexMPC::setVelCmd(vector3_t vd, scalar_t yawd) {
   vel_cmd = vd;
   // 渐进式角速度限制，避免突变 / Progressive angular velocity limiting to avoid sudden changes
   scalar_t yawd_target = min(max(yawd, -0.3), 0.3);
-  // yawd_ = yawd_target;
-  yawd_ = 0.9 * yawd_ + 0.1 * yawd_target;  // 低通滤波 / Low-pass filtering
+  yawd_ = yawd_target;
+  // yawd_ = 0.9 * yawd_ + 0.1 * yawd_target;  // 低通滤波 / Low-pass filtering
 }
 
 /**
